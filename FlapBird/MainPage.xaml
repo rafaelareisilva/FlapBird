@@ -8,6 +8,29 @@
                Source="flappybird.jpg"
                Aspect="AspectFill"/>
 
+         <Image x:Name="cano"
+               Source="canobaixo.jpg"
+               WidthRequest="300"
+               VerticalOptions="End"
+               HorizontalOptions="End"/>
+
+         <Image
+                  x:Name="passaro"
+                  Source="passaro.png"
+                  WidthRequest="60"
+                  HeightRequest="90"
+                  VerticalOptions="Center"
+                  HorizontalOptions="Start"/>
+
+         <Image
+                     x:Name="CanoDeCima"
+                     Source="canocima.png"
+                     WidthRequest="1250"
+                     
+                     VerticalOptions="Start"
+                     HorizontalOptions="End"
+                     />
+
     </Grid>
         
 

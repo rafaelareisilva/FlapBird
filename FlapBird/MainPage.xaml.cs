@@ -2,14 +2,34 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
+	const int gravidade=30;
+	const int tempoEntreFrames=25;
+	bool estaMorto=false;
+	
 	public MainPage()
 	{
 		InitializeComponent();
 	}
+	void AplicaGravidade()
+	{
+		passaro.TranslationY+=gravidade;
+	}
+	async Task Desenhar()
+	{
+		while (!estaMorto)
+		{
+			AplicaGravidade();
+			await Task.Delay(tempoEntreFrames);
+		}
 
-	
-	
+	}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+		Desenhar();
+    }
+
+
+
 }
 
