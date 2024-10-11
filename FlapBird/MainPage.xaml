@@ -8,27 +8,40 @@
                Source="flappybird.jpg"
                Aspect="AspectFill"/>
 
-         <Image x:Name="cano"
-               Source="canobaixo.jpg"
-               WidthRequest="300"
+        <Frame x:Name="FrameGameOver"
+               BackgroundColor="#99000000"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill">
+               <Frame.GestureRecognizers>
+               <TapGestureRecognizer Tapped="OnGameOverClicked"/>
+               </Frame.GestureRecognizers>
+
+            </Frame>               
+        
+
+         <Image x:Name="CanoDeBaixo"
+               Source="canobaixo.png"
+               WidthRequest="80"
+               
                VerticalOptions="End"
                HorizontalOptions="End"/>
 
          <Image
                   x:Name="passaro"
                   Source="passaro.png"
-                  WidthRequest="60"
-                  HeightRequest="90"
+                  WidthRequest="30"
+                  HeightRequest="30"
                   VerticalOptions="Center"
                   HorizontalOptions="Start"/>
 
          <Image
                      x:Name="CanoDeCima"
                      Source="canocima.png"
-                     WidthRequest="1250"
-                     
+                     WidthRequest="80" 
+                                       
                      VerticalOptions="Start"
                      HorizontalOptions="End"
+                     
                      />
 
     </Grid>
