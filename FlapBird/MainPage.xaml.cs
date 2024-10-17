@@ -12,6 +12,8 @@ public partial class MainPage : ContentPage
 	int tempoPulando=0;
 	bool estaPulando=false;
 	const int forcaPulo=25;
+	const int aberturaMinima = 200;
+	int score=0;
 
 	
 	public MainPage()
@@ -43,7 +45,7 @@ public partial class MainPage : ContentPage
 
 		else
 			AplicaGravidade();
-			await Task.Delay(tempoEntreFrames);
+			
 			GerenciaCanos();
 
 			if (VerificaColisao())
@@ -71,18 +73,27 @@ public partial class MainPage : ContentPage
 	{
 		CanoDeCima.TranslationX-=velocidade;	
 		CanoDeBaixo.TranslationX-=velocidade;
-		if(CanoDeBaixo.TranslationX<-larguraJanela)
+		if(CanoDeBaixo.TranslationX<=-larguraJanela)
 		{
-			CanoDeBaixo.TranslationX=0;
-			CanoDeCima.TranslationX=0;
+			CanoDeBaixo.TranslationX=4;
+			CanoDeCima.TranslationX=4;
+
+			var alturaMax = -100;
+			var alturaMin = -CanoDeBaixo.HeightRequest;
+			CanoDeCima.TranslationY = Random.Shared.Next((int)alturaMin, (int)alturaMax);
+			CanoDeBaixo.TranslationY = CanoDeCima.TranslationY + aberturaMinima + CanoDeBaixo.HeightRequest;
+
+			score++;
+			labelScore.Text = "Canos:" + score.ToString("D3");
 		}
 	
 	}
 
 	void OnGameOverClicked(object s, TappedEventArgs a)
 	{
-		FrameGameOver.IsVisible=false;
+		
 		Inicializar();
+		FrameGameOver.IsVisible=false;
 		Desenhar();
 	}
 	void Inicializar()

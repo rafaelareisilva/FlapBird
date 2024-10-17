@@ -8,9 +8,15 @@
         <TapGestureRecognizer Tapped="OnGridClicked"/>
         </Grid.GestureRecognizers>
 
+      <Label x:Name="labelScore"
+                   VerticalOptions="Start"
+                   HorizontalOptions="End"/>
+
+
         <Image x:Name="fundo"
                Source="flappybird.jpg"
                Aspect="AspectFill"/>
+
 
         <Frame x:Name="FrameGameOver"
                BackgroundColor="#99000000"
@@ -21,16 +27,18 @@
                </Frame.GestureRecognizers>              
                <Image Source="start.png"
                 HeightRequest="195"
-                   WidthRequest="160"/>
+                WidthRequest="160"/>
        </Frame>               
              
         
 
          <Image x:Name="CanoDeBaixo"
                Source="canobaixo.png"
-               WidthRequest="80"               
+               WidthRequest="80"  
+               HeightRequest="650"             
                VerticalOptions="End"
-               HorizontalOptions="End"/>
+               HorizontalOptions="End"
+               BackgroundColor="#FFF30202"/>
 
          <Image
                   x:Name="passaro"
@@ -44,11 +52,11 @@
          <Image
                      x:Name="CanoDeCima"
                      Source="canocima.png"
-                     WidthRequest="80"                                        
+                     BackgroundColor="Red"
+                     WidthRequest="80"   
+                      HeightRequest="650"                                     
                      VerticalOptions="Start"
-                     HorizontalOptions="End"
-                     
-                     />
+                     HorizontalOptions="End"/>
 
     </Grid>
         
