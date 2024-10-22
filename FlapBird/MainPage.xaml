@@ -3,62 +3,86 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FlapBird.MainPage">
 
-     <Grid>
-        <Grid.GestureRecognizers>
-        <TapGestureRecognizer Tapped="OnGridClicked"/>
-        </Grid.GestureRecognizers>
+       <Grid>
+              <Grid.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="OnGridClicked"/>
+              </Grid.GestureRecognizers>
 
-      <Label x:Name="labelScore"
-                   VerticalOptions="Start"
-                   HorizontalOptions="End"/>
-
-
-        <Image x:Name="fundo"
-               Source="flappybird.jpg"
-               Aspect="AspectFill"/>
+              <Label x:Name="labelScore"             
+                     VerticalOptions="Start"
+                     HorizontalOptions="End" />
 
 
-        <Frame x:Name="FrameGameOver"
-               BackgroundColor="#99000000"
-               HorizontalOptions="Fill"
-               VerticalOptions="Fill">
-               <Frame.GestureRecognizers>
-               <TapGestureRecognizer Tapped="OnGameOverClicked"/>
-               </Frame.GestureRecognizers>              
-               <Image Source="start.png"
-                HeightRequest="195"
-                WidthRequest="160"/>
-       </Frame>               
-             
-        
+              <Image x:Name="fundo"
+                     Source="flappybird.jpg"
+                     Aspect="AspectFill"/>
 
-         <Image x:Name="CanoDeBaixo"
-               Source="canobaixo.png"
-               WidthRequest="80"  
-               HeightRequest="650"             
-               VerticalOptions="End"
-               HorizontalOptions="End"
-               BackgroundColor="#FFF30202"/>
 
-         <Image
-                  x:Name="passaro"
-                  Source="passaro.png"
-                  WidthRequest="50"
-                  HeightRequest="50"
-                  VerticalOptions="Center"
-                  HorizontalOptions="Start"
-                  Margin="30,0,0,0"/>
+              <Frame x:Name="FrameGameOver"
+                     BackgroundColor="#99000000"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Fill">
+                     <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGameOverClicked"/>
+                     </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                              <RowDefinition Height="*"/>
+                              <RowDefinition Height="*"/>
+                              <RowDefinition Height="*"/>
+                              <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="start.png"
+                               HeightRequest="500"
+                               WidthRequest="250"
+                               Grid.Row="2"/>
+                        <Frame Grid.Row="1"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center">
+                              <Grid>
+                                    <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="*"/>
+                                          <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                              </Grid>
+                              <Label Text="Você passou por 001 Canos!!"
+                                     x:Name="LabelCanos"
+                                    
+                                     Grid.Column="1"
+                                     Grid.Row="4"/>
+                        </Frame>
+                  </Grid>
+              </Frame>
 
-         <Image
+
+
+              <Image x:Name="CanoDeBaixo"
+                     Source="cano_baixo.png"
+                     WidthRequest="80"
+                     HeightRequest="650"
+                     VerticalOptions="End"
+                     HorizontalOptions="End"
+              />
+
+              <Image
+                     x:Name="passaro"
+                     Source="passaro.png"
+                     WidthRequest="50"
+                     HeightRequest="50"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     Margin="30,0,0,0"/>
+
+              <Image
                      x:Name="CanoDeCima"
-                     Source="canocima.png"
-                     BackgroundColor="Red"
-                     WidthRequest="80"   
-                      HeightRequest="650"                                     
+                     Source="cano_cima.jpg"
+                    
+                     WidthRequest="80"
+                     HeightRequest="650"
                      VerticalOptions="Start"
                      HorizontalOptions="End"/>
 
-    </Grid>
-        
+       </Grid>
+
 
 </ContentPage>
