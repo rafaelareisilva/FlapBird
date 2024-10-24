@@ -8,10 +8,7 @@
                      <TapGestureRecognizer Tapped="OnGridClicked"/>
               </Grid.GestureRecognizers>
 
-              <Label x:Name="labelScore"             
-                     VerticalOptions="Start"
-                     HorizontalOptions="End" />
-
+            
 
               <Image x:Name="fundo"
                      Source="flappybird.jpg"
@@ -25,44 +22,47 @@
                      <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnGameOverClicked"/>
                      </Frame.GestureRecognizers>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                              <RowDefinition Height="*"/>
-                              <RowDefinition Height="*"/>
-                              <RowDefinition Height="*"/>
-                              <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Image Source="start.png"
-                               HeightRequest="500"
-                               WidthRequest="250"
-                               Grid.Row="2"/>
-                        <Frame Grid.Row="1"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center">
-                              <Grid>
-                                    <Grid.ColumnDefinitions>
-                                          <ColumnDefinition Width="*"/>
-                                          <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                              </Grid>
-                              <Label Text="Você passou por 001 Canos!!"
-                                     x:Name="LabelCanos"
-                                    
-                                     Grid.Column="1"
-                                     Grid.Row="4"/>
-                        </Frame>
-                  </Grid>
+
+                     <Grid>
+                            <Grid.RowDefinitions>
+                                   <RowDefinition Height="*"/>
+                                   <RowDefinition Height="*"/>
+                                   <RowDefinition Height="*"/>
+                                   <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Source="start.png"
+                                   HeightRequest="500"
+                                   WidthRequest="250"
+                                   Grid.Row="2"/>
+                            <Frame Grid.Row="1"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+
+                                   <Grid>
+                                          <Grid.ColumnDefinitions>
+                                                 <ColumnDefinition Width="*"/>
+                                                 <ColumnDefinition Width="*"/>
+                                          </Grid.ColumnDefinitions>
+                                   </Grid>
+
+                                   <Label Text="Você passou por 001 Canos!!"
+                                          x:Name="LabelCanos"
+                                          Grid.Column="1"
+                                          Grid.Row="4"/>
+                            </Frame>
+                     </Grid>
               </Frame>
 
 
 
               <Image x:Name="CanoDeBaixo"
+                     Aspect="Fill"
                      Source="cano_baixo.png"
                      WidthRequest="80"
                      HeightRequest="650"
                      VerticalOptions="End"
-                     HorizontalOptions="End"
-              />
+                     HorizontalOptions="End"/>
 
               <Image
                      x:Name="passaro"
@@ -75,10 +75,17 @@
 
               <Image
                      x:Name="CanoDeCima"
+                     Aspect="Fill"
                      Source="cano_cima.jpg"
-                    
                      WidthRequest="80"
                      HeightRequest="650"
+                     VerticalOptions="Start"
+                     HorizontalOptions="End"/>
+
+                      <Label x:Name="labelScore"
+                     Text="Score: 00000"
+                     FontSize="30"
+                     Margin="0,20,20,0"
                      VerticalOptions="Start"
                      HorizontalOptions="End"/>
 
