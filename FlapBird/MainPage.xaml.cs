@@ -54,6 +54,7 @@ public partial class MainPage : ContentPage
 			if (VerificaColisao())
 			{
 				estaMorto = true;
+				SoundHelper.Play("morte.wav");
 				FrameGameOver.IsVisible = true;
 				break;
 			}
@@ -93,7 +94,8 @@ public partial class MainPage : ContentPage
 
 			CanoDeCima.TranslationY = Random.Shared.Next((int)alturaMin, (int)alturaMax);
 			CanoDeBaixo.TranslationY = CanoDeCima.TranslationY + aberturaMinima + CanoDeBaixo.HeightRequest;
-
+           
+            SoundHelper.Play("win.wav");
 			score++;
 			labelScore.Text = "Canos:" + score.ToString("D3");
 			 if (score % 4 == 0)
@@ -108,6 +110,7 @@ public partial class MainPage : ContentPage
 		Inicializar();
 		FrameGameOver.IsVisible = false;
 		Desenhar();
+		SoundHelper.Play("song.wav");
 	}
 
 	void Inicializar()
@@ -127,17 +130,18 @@ public partial class MainPage : ContentPage
 	{
 		if (!estaMorto)
 		{
+			
 			if (VerificaColisaoTeto() ||
 			VerificaColisaoChao() ||
 			VerificaColisaoCanoCima()||
 			VerificaColisaoCanoBaixo())
 
 				return true;
-
 		}
 
 		return false;
 	}
+
 
 	bool VerificaColisaoTeto()
 	{
@@ -147,6 +151,8 @@ public partial class MainPage : ContentPage
 		else
 			return false;
 	}
+
+
 	bool VerificaColisaoChao()
 	{
 		var maxY = alturaJanela / 2;
